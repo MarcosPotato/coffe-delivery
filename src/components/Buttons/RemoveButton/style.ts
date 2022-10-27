@@ -19,7 +19,6 @@ export const RemoveButtonBase = styled.button<RemoveButtonBaseProps>`
     background-color: ${ props => props.theme['base-button'] };
     color: ${ props => props.theme['base-text'] };
     font-weight: 400;
-    /* line-height: 160%; */
     font-size: 12px;
     transition: 200ms;
 
