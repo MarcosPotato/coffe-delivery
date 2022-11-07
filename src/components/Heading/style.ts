@@ -10,10 +10,10 @@ interface HeadingProps {
 }
 
 const fontSizes = {
-    small: "18px",
-    medium: "20px",
-    large: "32px",
-    xl: "48px"
+    small: "1.2rem",
+    medium: "1.3rem",
+    large: "2.1rem",
+    xl: "3.2rem"
 }
 
 const fontWeigths = {

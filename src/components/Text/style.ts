@@ -12,13 +12,13 @@ interface TextProps {
 }
 
 const fontSizes = {
-    xs: "10px",
-    small: "12px",
-    medium: "14px",
-    large: "16px",
-    xl: "18px" ,
-    "2-xl": "20px",
-    "3-xl": "24px"
+    xs: "0.7rem",
+    small: "0.8rem",
+    medium: "0.9rem",
+    large: "1.1rem",
+    xl: "1.2rem" ,
+    "2-xl": "1.3rem",
+    "3-xl": "1.6rem"
 }
 
 const fontWeigths = {
