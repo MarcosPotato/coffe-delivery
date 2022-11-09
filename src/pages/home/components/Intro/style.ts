@@ -24,11 +24,11 @@ export const Container = styled.div`
     align-items: center;
     gap: 100px;
     position: relative;
-    background: url(${BgImage});
+    /* background: url(${BgImage});
     
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: cover; */
 
     @media (max-width: 1100px){
         max-width: 700px;
