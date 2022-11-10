@@ -82,8 +82,7 @@ export const Details = styled.div`
 `
 
 export const DetailIcon = styled.div<DetailIconProps>`
-    width: 32px;
-    height: 32px;
+    padding: 8px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
