@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { css } from 'styled-components'
+import { Slot } from '@radix-ui/react-slot'
 
 interface SubmitButtonBaseProps{
     fullWidth?: boolean
 }
 
-export const SubmitButtonBase = styled.button<SubmitButtonBaseProps>`
+const SubmitButtonBase = css<SubmitButtonBaseProps>`
     width: ${ props => props.fullWidth ? "100%" : "auto" };
     height: auto;
     min-height: 46px;
@@ -22,7 +24,17 @@ export const SubmitButtonBase = styled.button<SubmitButtonBaseProps>`
     font-size: 14px;
     transition: 200ms;
 
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 160%;
+    text-transform: uppercase;
+
     &:hover{
         background-color: ${ props => props.theme['yellow-dark'] };
     }
 `
+
+export const SubmitButtonDefault = styled.button`${ SubmitButtonBase }`
+
+export const SubmitButtonSlot = styled(Slot)`${ SubmitButtonBase }`

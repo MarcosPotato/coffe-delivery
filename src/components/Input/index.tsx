@@ -2,19 +2,30 @@ import { HTMLAttributes, HTMLInputTypeAttribute, useState, } from "react"
 import { InputBase } from "./style"
 
 interface InputProps extends HTMLAttributes<HTMLInputElement>{
+    fullWidth?: boolean
     optional?: boolean
     type?: HTMLInputTypeAttribute
 }
 
-export const Input: React.FC<InputProps> = ({ onBlur, onFocus, onChange, optional, ...props }) => {
+export const Input: React.FC<InputProps> = ({ 
+    onBlur, 
+    onFocus, 
+    onChange, 
+    optional, 
+    fullWidth,
+    className,
+    ...props 
+}) => {
 
     const [isFilled, setIsFilled] = useState<boolean>(false)
     const [isFocus, setIsFocus] = useState<boolean>(false)
 
     return (
         <InputBase
+            className={className}
             isFilled={ isFilled }
             isFocus={ isFocus }
+            fullWidth={ fullWidth }
         >
             <input 
                 {...props }

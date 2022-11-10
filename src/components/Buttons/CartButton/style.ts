@@ -17,6 +17,7 @@ const CartButtonBase = styled.button`
     border: none;
     border-radius: 6px;
     transition: 200ms;
+    outline: none !important;
 
     svg{
         width: 22px;

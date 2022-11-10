@@ -18,7 +18,9 @@ export const Header: React.FC = () => {
                     <MapPin weight="fill"/>
                     Porto Alegre, RS
                 </LocationInfo>
-                <CartButton action="show" />
+                <NavLink to="/cart">
+                    <CartButton action="show" />
+                </NavLink>
             </HeaderActions>
         </Container>
     )
