@@ -6,8 +6,12 @@ import { CartButton } from "../Buttons/CartButton"
 import { Container, HeaderActions, LocationInfo } from "./style"
 
 import Logo from '../../assets/logo.svg'
+import { useCart } from '../../hooks/useCart'
 
 export const Header: React.FC = () => {
+
+    const { cart } = useCart()
+
     return (
         <Container>
             <NavLink to="/">
@@ -19,7 +23,7 @@ export const Header: React.FC = () => {
                     Porto Alegre, RS
                 </LocationInfo>
                 <NavLink to="/cart">
-                    <CartButton action="show" />
+                    <CartButton action="show" totalItens={ cart.length }/>
                 </NavLink>
             </HeaderActions>
         </Container>

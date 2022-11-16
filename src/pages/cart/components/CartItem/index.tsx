@@ -1,6 +1,6 @@
 import { Container } from "./style"
 
-import CoffeeImage from '../../../../assets/images/coffees/traditional-express.png'
+import CoffeeImage from '../../../../assets/images/coffees/traditional.png'
 import { Text } from "../../../../components/Text"
 import { SelectQuantity } from "../../../../components/SelectQuantity"
 import { RemoveButton } from "../../../../components/Buttons/RemoveButton"

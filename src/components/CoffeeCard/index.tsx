@@ -4,7 +4,7 @@ import { SelectQuantity } from "../SelectQuantity"
 import { CartButton } from "../Buttons/CartButton"
 
 import { CardActions, Container, Price } from "./style"
-import CoffeImage from '../../assets/images/coffees/traditional-express.png'
+import CoffeImage from '../../assets/images/coffees/traditional.png'
 
 export const CoffeeCard: React.FC = () => {
     return(
