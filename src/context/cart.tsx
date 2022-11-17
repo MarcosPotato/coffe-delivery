@@ -11,7 +11,15 @@ export const CartContext = createContext({} as CartProductContextParams)
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
-    const [cart, setCart] = useState<CartProduct[]>([])
+    const [cart, setCart] = useState<CartProduct[]>(() => {
+        const currentCart = localStorage.getItem("@coffeedelivery:cart")
+
+        if(!currentCart){
+            return []
+        }
+
+        return JSON.parse(currentCart)
+    })
 
     const addOnCart = useCallback((product: CartProduct) => {
         setCart(produce(draft => {
@@ -22,7 +30,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
             } else{
                 draft[existProduct] = {
                     ...draft[existProduct],
-                    quantity: draft[existProduct].quantity + 1 
+                    quantity: draft[existProduct].quantity + product.quantity
                 }
             }
 

@@ -1,9 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect, useImperativeHandle, forwardRef } from "react"
 
 import { Plus, Minus } from 'phosphor-react'
 import { Container } from "./style"
 
-export const SelectQuantity: React.FC = () => {
+export interface SelectQuantityRef{
+    reset: () => void
+}
+
+interface SelectQuantityProps{
+    onChange: (value: number) => void
+}
+
+const SelectQuantity: React.ForwardRefRenderFunction<
+    SelectQuantityRef, 
+    SelectQuantityProps
+> = ({ onChange }, ref) => {
 
     const [quantity, setQuantity] = useState<number>(0)
 
@@ -15,6 +26,14 @@ export const SelectQuantity: React.FC = () => {
         setQuantity(prev => prev > 0 ? prev - 1 : prev)
     }
 
+    useEffect(() => {
+        onChange(quantity)
+    },[quantity])
+
+    useImperativeHandle(ref, () => ({
+        reset: () => setQuantity(0)
+    }))
+
     return(
         <Container>
             <Minus weight="bold" onClick={ removeQuantity }/>
@@ -23,3 +42,5 @@ export const SelectQuantity: React.FC = () => {
         </Container>
     )
 }
+
+export default forwardRef(SelectQuantity)

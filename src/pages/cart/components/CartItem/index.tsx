@@ -2,7 +2,7 @@ import { Container } from "./style"
 
 import CoffeeImage from '../../../../assets/images/coffees/traditional.png'
 import { Text } from "../../../../components/Text"
-import { SelectQuantity } from "../../../../components/SelectQuantity"
+import SelectQuantity from "../../../../components/SelectQuantity"
 import { RemoveButton } from "../../../../components/Buttons/RemoveButton"
 
 export const CartItem: React.FC = () => {
@@ -13,7 +13,7 @@ export const CartItem: React.FC = () => {
                 <Text size="large" type="subtitle">
                     Expresso Tradicional
                 </Text>
-                <SelectQuantity />
+                <SelectQuantity onChange={(value) => console.log(value)}/>
                 <RemoveButton>
                     Remover
                 </RemoveButton>

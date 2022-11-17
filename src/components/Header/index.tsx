@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
                     Porto Alegre, RS
                 </LocationInfo>
                 <NavLink to="/cart">
-                    <CartButton action="show" totalItens={ cart.length }/>
+                    <CartButton action="show" totalItens={ cart?.length }/>
                 </NavLink>
             </HeaderActions>
         </Container>

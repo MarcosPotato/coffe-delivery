@@ -8,6 +8,7 @@ export const Container = styled.div`
     background-color: ${ props => props.theme["base-card"] };
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
 
@@ -15,20 +16,6 @@ export const Container = styled.div`
         margin-top: -40px;
         width: 120px;
         margin-bottom: 12px;
-    }
-
-    > span{
-        padding: 8px 4px;
-        background-color: ${ props => props.theme["yellow-light"] };
-        margin-bottom: 16px;
-
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 10px;
-        line-height: 130%;
-        text-transform: uppercase;
-        color: ${ props => props.theme["yellow-dark"] };
     }
 `
 
@@ -59,5 +46,29 @@ export const Price = styled.div`
 
     p{
         font-family: 'Baloo 2', sans-serif !important;
+    }
+`
+
+export const Markers = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    span{
+        padding: 4px 8px;
+        background-color: ${ props => props.theme["yellow-light"] };
+        margin-bottom: 16px;
+        border-radius: 100px;
+
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 130%;
+        text-transform: uppercase;
+        color: ${ props => props.theme["yellow-dark"] };
     }
 `
