@@ -15,7 +15,7 @@ export const getAddressByCep = async(cep: string): Promise<AddressCorreios> => {
     const filteredCEP = cep.replace(/\D+/g, '')
 
     try{
-        const data = await fetch(`http://viacep.com.br/ws/${filteredCEP}/json/`)
+        const data = await fetch(`https://viacep.com.br/ws/${filteredCEP}/json/`)
             .then(response => response.json())
 
         return data
