@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fade } from "../../styles/animations";
 
 export const Container = styled.div`
     width: 256px;
@@ -11,6 +12,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    animation: ${ fade } 200ms;
 
     img{
         margin-top: -40px;

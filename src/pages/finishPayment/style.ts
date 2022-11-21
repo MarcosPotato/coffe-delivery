@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fade } from "../../styles/animations";
 import { DefaultTheme } from "../../theme/defaultTheme";
 
 const IconColors = {
@@ -39,6 +40,7 @@ export const Info = styled.div`
     flex-direction: row;
     justify-content: space-between;
     gap: 18px;
+    animation: ${ fade } 200ms;
 
     img{
         width: 492px;
@@ -101,7 +103,7 @@ export const DeliveryDetails = styled.div`
     }
 `
 
-export const DetailIcon = styled.div<DetailIconProps>`
+export const DetailIcon = styled.span<DetailIconProps>`
     padding: 8px;
     border-radius: 50%;
     display: flex;

@@ -15,6 +15,7 @@ interface ButtonIconProps{
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     isSelected?: boolean
     asChild?: boolean
+    type?: "submit" | "button"
 }
 
 const ButtonRoot: React.FC<ButtonProps> = ({ children, isSelected, asChild, ...props }) => {
@@ -27,7 +28,6 @@ const ButtonRoot: React.FC<ButtonProps> = ({ children, isSelected, asChild, ...p
 }
 
 const ButtonIcon: React.FC<ButtonIconProps> = ({ icon: SVGIcon, svgProps }) => {
-    console.log(SVGIcon)
     return (
         <Icon>
             <SVGIcon {...svgProps}/>

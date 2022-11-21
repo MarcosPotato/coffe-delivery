@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
     width: 100%;
     padding: 18px;
     display: flex;
@@ -27,9 +27,10 @@ export const InfoFormContainer = styled(ContainerBase)`
     display: flex;
     flex-direction: column;
     gap: 12px;
+    min-width: 350px;
 
     @media (min-width: 750px){
-        min-width: 500px;
+        align-items: center;
     }
 `
 
@@ -58,6 +59,7 @@ export const AddressForm = styled(FormBase)`
 
     header{
         margin-bottom: 24px;
+
         svg{
             color: ${ props => props.theme["yellow-dark"] };
         }
@@ -84,6 +86,7 @@ export const AddressForm = styled(FormBase)`
 `
 
 export const PaymentForm = styled(FormBase)`
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -103,6 +106,14 @@ export const PaymentForm = styled(FormBase)`
 
         button{
             flex: 1;
+        }
+
+        @media (max-width: 1050px){
+            flex-direction: column;
+
+            button{
+                width: 100%;
+            }
         }
     }
 `

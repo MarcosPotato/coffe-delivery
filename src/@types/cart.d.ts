@@ -8,6 +8,7 @@ export interface CartProduct{
 
 export interface CartProductContextParams{
     cart: CartProduct[]
+    clearCart: () => void
     addOnCart: (product: CartProduct) => void
     removeOnChart: (productId: string) => void
     increaseQuantity: (productId: string) => void

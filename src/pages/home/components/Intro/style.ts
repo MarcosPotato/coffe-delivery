@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { DefaultTheme } from "../../../../theme/defaultTheme";
 
 import BgImage from '../../../../assets/images/background.png'
+import { fade } from "../../../../styles/animations";
 
 const IconColors = {
     security: DefaultTheme["yellow-dark"],
@@ -54,6 +55,7 @@ export const ImageLogo = styled.img`
     object-fit: contain;
     width: 50%;
     max-width: 476px;
+    animation: ${ fade } 200ms;
 
     @media (max-width: 1100px){
         display: none;

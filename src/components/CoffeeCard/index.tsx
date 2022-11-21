@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from "react"
+import { toast } from "react-toastify"
 import { Coffee } from "../../@types/coffee"
 
 import { useCart } from "../../hooks/useCart"
@@ -30,7 +31,7 @@ export const CoffeeCard: React.FC<CoffeeCardProps> = ({ coffeeInfo }) => {
 
     const handleAddCart = (item: Coffee) => {
         if(coffeeAmount <= 0){
-            console.log("não da pra adicionar zero")
+            toast.warning("Por favor selecione uma quantidade")
             return
         }
 
@@ -38,6 +39,8 @@ export const CoffeeCard: React.FC<CoffeeCardProps> = ({ coffeeInfo }) => {
             ...item,
             quantity: coffeeAmount
         })
+
+        toast.success(`${item.name} adicionado ao carrinho`)
 
         selectQuantityRef.current?.reset()
     }

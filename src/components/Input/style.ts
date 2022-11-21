@@ -5,6 +5,7 @@ interface InputBaseProps{
     fullWidth?: boolean
     isFilled?: boolean
     isFocus?: boolean
+    hasError?: boolean
 }
 
 export const InputBase = styled.label<InputBaseProps>`
@@ -19,6 +20,7 @@ export const InputBase = styled.label<InputBaseProps>`
     gap: 6px;
     border-radius: 4px; 
     transition: 200ms;
+    position: relative;
 
     input{
         width: 100%;
@@ -43,7 +45,22 @@ export const InputBase = styled.label<InputBaseProps>`
         color: ${ props => props.theme["base-label"] };
     }
 
+    ${ props => props.hasError && css`
+        border-color: #c53030;
+    `}
+
     ${ props => (props.isFocus || props.isFilled) && css`
         border-color: ${ props.theme["yellow-dark"] };
     `}
+`
+
+export const ErrorMessage = styled.p`
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    color: #c53030;
+    position: absolute;
+    bottom: -12px;
+    left: 0px;
 `

@@ -71,14 +71,28 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                     ...draft[existProduct],
                     quantity: draft[existProduct].quantity > 1 ? draft[existProduct].quantity - 1 : 1
                 }
-
+                
                 localStorage.setItem("@coffeedelivery:cart", JSON.stringify(draft))
             }
         }))
     },[])
 
+    const clearCart = useCallback(() => {
+        setCart([])
+        localStorage.removeItem("@coffeedelivery:cart")
+    },[])
+
     return (
-        <CartContext.Provider value={{ cart, addOnCart, decreaseQuantity, increaseQuantity, removeOnChart }}>
+        <CartContext.Provider 
+            value={{ 
+                cart, 
+                addOnCart,
+                decreaseQuantity, 
+                increaseQuantity, 
+                removeOnChart,
+                clearCart
+            }}
+        >
             { children }
         </CartContext.Provider>
     )

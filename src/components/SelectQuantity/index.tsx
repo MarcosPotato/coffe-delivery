@@ -8,27 +8,35 @@ export interface SelectQuantityRef{
 }
 
 interface SelectQuantityProps{
-    onChange: (value: number) => void
+    startQuantity?: number
+    minValue?: number
+    onChange: (value: number, event?: "increase" | "decrease") => void
 }
 
 const SelectQuantity: React.ForwardRefRenderFunction<
     SelectQuantityRef, 
     SelectQuantityProps
-> = ({ onChange }, ref) => {
+> = ({ 
+    onChange, 
+    startQuantity, 
+    minValue = 0
+}, ref) => {
 
-    const [quantity, setQuantity] = useState<number>(0)
+    const [quantity, setQuantity] = useState<number>(startQuantity || 0)
 
     const addQuantity = () => {
-        setQuantity(prev => prev + 1)
+        let value = quantity + 1
+        
+        setQuantity(value)
+        onChange(value, "increase")
     }
 
     const removeQuantity = () => {
-        setQuantity(prev => prev > 0 ? prev - 1 : prev)
+        let value = quantity > minValue ? quantity - 1 : quantity
+        
+        setQuantity(value)
+        onChange(value, "decrease")
     }
-
-    useEffect(() => {
-        onChange(quantity)
-    },[quantity])
 
     useImperativeHandle(ref, () => ({
         reset: () => setQuantity(0)

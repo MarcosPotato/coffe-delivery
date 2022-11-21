@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { css } from 'styled-components'
+import { fade } from '../../../styles/animations'
 
 interface ShowCartButtonProps{
     total?: number
@@ -60,6 +61,7 @@ export const ShowCartButton = styled(CartButtonBase)<ShowCartButtonProps>`
             position: absolute;
             top: -8px;
             right: -8px;
+            animation: ${ fade } 200ms;
         }
     ` }
 `

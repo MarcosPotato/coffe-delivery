@@ -1,6 +1,8 @@
 import { MapPin } from "phosphor-react"
+
 import { Heading } from "../../components/Heading"
 import { Text } from "../../components/Text"
+
 import { Container, DeliveryDetails, DetailIcon, Info } from "./style"
 
 import DeliveryGuy from "../../assets/images/delivered.png"

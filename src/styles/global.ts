@@ -7,6 +7,12 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    :root{
+        --toastify-color-info: ${ props => props.theme["base-subtitle"] };
+        --toastify-color-success: ${ props => props.theme.purple };
+        --toastify-color-warning: ${ props => props.theme.yellow };
+    }
+
     @media (max-width: 1080px){
         html{
             font-size: 93.75%; //15px

@@ -1,21 +1,25 @@
-import { HTMLAttributes, HTMLInputTypeAttribute, useState, } from "react"
-import { InputBase } from "./style"
+import { forwardRef, HTMLAttributes, HTMLInputTypeAttribute, useState, } from "react"
+import { FieldError } from "react-hook-form"
+import { ErrorMessage, InputBase } from "./style"
 
 interface InputProps extends HTMLAttributes<HTMLInputElement>{
     fullWidth?: boolean
     optional?: boolean
     type?: HTMLInputTypeAttribute
+    error?: FieldError
+    value?: string
 }
 
-export const Input: React.FC<InputProps> = ({ 
+const Input: React.ForwardRefRenderFunction<HTMLInputElement,InputProps> = ({ 
     onBlur, 
     onFocus, 
     onChange, 
     optional, 
     fullWidth,
     className,
+    error,
     ...props 
-}) => {
+}, ref) => {
 
     const [isFilled, setIsFilled] = useState<boolean>(false)
     const [isFocus, setIsFocus] = useState<boolean>(false)
@@ -26,8 +30,10 @@ export const Input: React.FC<InputProps> = ({
             isFilled={ isFilled }
             isFocus={ isFocus }
             fullWidth={ fullWidth }
+            hasError={ !!error?.message  }
         >
             <input 
+                ref={ ref }
                 {...props }
                 onBlur={(event) => {
                     setIsFocus(false)
@@ -49,6 +55,11 @@ export const Input: React.FC<InputProps> = ({
                 }}
             />
             { optional && ( <span>Opcional</span> )}
+            { !!error?.message && (
+                <ErrorMessage>{ error.message }</ErrorMessage>
+            )}
         </InputBase>
     )
 }
+
+export default forwardRef(Input)

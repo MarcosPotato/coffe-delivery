@@ -1,24 +1,53 @@
 import { Container } from "./style"
 
-import CoffeeImage from '../../../../assets/images/coffees/traditional.png'
+import { Coffee } from "../../../../@types/coffee"
+import { formatValue } from "../../../../utils/formatValue"
+
+import { RemoveButton } from "../../../../components/Buttons/RemoveButton"
 import { Text } from "../../../../components/Text"
 import SelectQuantity from "../../../../components/SelectQuantity"
-import { RemoveButton } from "../../../../components/Buttons/RemoveButton"
+import { CartProduct } from "../../../../@types/cart"
+import { useCart } from "../../../../hooks/useCart"
 
-export const CartItem: React.FC = () => {
+interface CartItemProps{
+    coffeeItem: CartProduct
+}
+
+export const CartItem: React.FC<CartItemProps> = ({ coffeeItem }) => {
+
+    const { removeOnChart, increaseQuantity, decreaseQuantity } = useCart()
+
+    const handleQuantity = (value: number, type?: "increase" | "decrease") => {
+        if(value < 1){
+            return
+        }
+
+        if(type === "increase"){
+            increaseQuantity(coffeeItem.id)
+        }
+
+        if(type === "decrease"){
+            decreaseQuantity(coffeeItem.id)
+        }
+    }
+
     return (
         <Container>
-            <img src={ CoffeeImage } alt="traditional-express" />
+            <img src={ coffeeItem.image } alt="traditional-express" />
             <div>
                 <Text size="large" type="subtitle">
-                    Expresso Tradicional
+                    { coffeeItem.name }
                 </Text>
-                <SelectQuantity onChange={(value) => console.log(value)}/>
-                <RemoveButton>
+                <SelectQuantity 
+                    startQuantity={ coffeeItem.quantity }
+                    minValue={ 1 }
+                    onChange={ handleQuantity }
+                />
+                <RemoveButton type="button" onClick={() => removeOnChart(coffeeItem.id)}>
                     Remover
                 </RemoveButton>
             </div>
-            <Text size="large" weight="bold">R$ 9,90</Text>
+            <Text size="large" weight="bold">R$ { formatValue(coffeeItem.price) }</Text>
         </Container>
     )
 }
